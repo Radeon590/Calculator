@@ -19,3 +19,5 @@ D:\MyProjects\MospolytechWPF\Calculator\obj\Debug\net6.0-windows\refint\Calculat
 D:\MyProjects\MospolytechWPF\Calculator\obj\Debug\net6.0-windows\Calculator.pdb
 D:\MyProjects\MospolytechWPF\Calculator\obj\Debug\net6.0-windows\Calculator.genruntimeconfig.cache
 D:\MyProjects\MospolytechWPF\Calculator\obj\Debug\net6.0-windows\ref\Calculator.dll
+D:\MyProjects\MospolytechWPF\Calculator\obj\Debug\net6.0-windows\OldMainPage.g.cs
+D:\MyProjects\MospolytechWPF\Calculator\obj\Debug\net6.0-windows\OldMainPage.baml

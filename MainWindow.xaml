@@ -5,34 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="720">
-    <Grid Name="mainLayout" ShowGridLines="True" ButtonBase.Click="ButtonClick">
-        <StackPanel>
-            <TextBox Name="textBox" Height="144" TextAlignment="Right" Text="0" FontSize="100" IsReadOnly="True"/>
-            <StackPanel Height="144" Orientation="Horizontal">
-                <Button Name="clear" Content="C" FontSize="100" Width="180"/>
-                <Button Name="devide" Content="/" FontSize="100" Width="180"/>
-                <Button Name="multiple" Content="X" FontSize="100" Width="180"/>
-                <Button Name="minus" Content="-" FontSize="100" Width="180"/>
-            </StackPanel>
-            <StackPanel Height="144" Orientation="Horizontal">
-                <Button Name="seven" Content="7" FontSize="100" Width="180"/>
-                <Button Name="eight" Content="8" FontSize="100" Width="180"/>
-                <Button Name="nine" Content="9" FontSize="100" Width="180"/>
-                <Button Name="plus" Content="+" FontSize="100" Width="180"/>
-            </StackPanel>
-            <StackPanel Height="144" Orientation="Horizontal">
-                <Button Name="four" Content="4" FontSize="100" Width="180"/>
-                <Button Name="five" Content="5" FontSize="100" Width="180"/>
-                <Button Name="six" Content="6" FontSize="100" Width="180"/>
-                <Button Name="equals" Content="=" FontSize="100" Width="180"/>
-            </StackPanel>
-            <StackPanel Height="144" Orientation="Horizontal">
-                <Button Name="zero" Content="0" FontSize="100" Width="180"/>
-                <Button Name="one" Content="1" FontSize="100" Width="180"/>
-                <Button Name="two" Content="2" FontSize="100" Width="180"/>
-                <Button Name="three" Content="3" FontSize="100" Width="180"/>
-            </StackPanel>
-        </StackPanel>
+        Title="MainWindow" Height="720" Width="360"
+        ResizeMode="NoResize">
+    <Grid Name="mainLayout" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Name="infoBlock" Height="*"></RowDefinition>
+            <RowDefinition Name="buttonsBlock" Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Name="infoBlockGrid" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Name="storyBlock" Height="*" IsEnabled="False"></RowDefinition>
+                <RowDefinition Name="inputBlock" Height="0.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                
+            </Grid>
+            <TextBox Grid.Row="1" Name="textBox" TextAlignment="Right" Text="0" FontSize="60" IsReadOnly="True"></TextBox>
+        </Grid>
+        <Grid Name="buttonsBlockGrid" Grid.Row="1" ButtonBase.Click="ButtonClick">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="C" Grid.Row="0" Grid.Column="0" FontSize="60"></Button>
+            <Button Content="/" Grid.Row="0" Grid.Column="1" FontSize="60"></Button>
+            <Button Content="X" Grid.Row="0" Grid.Column="2" FontSize="60"></Button>
+            <Button Content="-" Grid.Row="0" Grid.Column="3" FontSize="60"></Button>
+            <Button Content="7" Grid.Row="1" Grid.Column="0" FontSize="60"></Button>
+            <Button Content="8" Grid.Row="1" Grid.Column="1" FontSize="60"></Button>
+            <Button Content="9" Grid.Row="1" Grid.Column="2" FontSize="60"></Button>
+            <Button Content="+" Grid.Row="1" Grid.Column="3" FontSize="60"></Button>
+            <Button Content="4" Grid.Row="2" Grid.Column="0" FontSize="60"></Button>
+            <Button Content="5" Grid.Row="2" Grid.Column="1" FontSize="60"></Button>
+            <Button Content="6" Grid.Row="2" Grid.Column="2" FontSize="60"></Button>
+            <Button Content="=" Grid.Row="2" Grid.Column="3" FontSize="60"></Button>
+            <Button Content="1" Grid.Row="3" Grid.Column="0" FontSize="60"></Button>
+            <Button Content="2" Grid.Row="3" Grid.Column="1" FontSize="60"></Button>
+            <Button Content="3" Grid.Row="3" Grid.Column="2" FontSize="60"></Button>
+            <Button Content="0" Grid.Row="3" Grid.Column="3" FontSize="60"></Button>
+        </Grid>
     </Grid>
 </Window>

@@ -19,6 +19,8 @@ namespace Calculator
             InitializeComponent();
         }
 
+
+
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
             string operationsTypes = "+-X/";
