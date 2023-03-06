@@ -14,15 +14,45 @@
         </Grid.RowDefinitions>
         <Grid Name="infoBlockGrid" Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Name="storyBlock" Height="*" IsEnabled="False"></RowDefinition>
+                <RowDefinition Name="storyBlock" Height="*"></RowDefinition>
                 <RowDefinition Name="inputBlock" Height="0.5*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                
+            <Grid Name="storyBlockGrid" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Name="storyActionsGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <CheckBox Grid.Row="0" Name="save" IsChecked="True" Content="Save" VerticalAlignment="Center"></CheckBox>
+                    <Button Grid.Row="1" Name="Clear" Content="Clear" Click="ClearButtonClick"></Button>
+                    <Button Grid.Row="2" Name="Delete" Content="Delete" Click="DeleteButtonClick"></Button>
+                </Grid>
+                <ListBox Grid.Column="1" Name="storyList">
+                    
+                </ListBox>
             </Grid>
-            <TextBox Grid.Row="1" Name="textBox" TextAlignment="Right" Text="0" FontSize="60" IsReadOnly="True"></TextBox>
+            <Grid Grid.Row="1" Name="inputBlockGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="3.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Name="showingSettingsBlock">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <RadioButton Grid.Row="0" Name="showTrue" VerticalAlignment="Center" Content="Show" IsChecked="True" GroupName="Show" Click="ShowHistory"></RadioButton>
+                    <RadioButton Grid.Row="1" Name="showFalse" VerticalAlignment="Center" Content="Dont show" IsChecked="False" GroupName="Show" Click="DontShowHistory"></RadioButton>
+                </Grid>
+                <TextBox Grid.Column="1" Name="textBox" TextAlignment="Right" Text="0" FontSize="60" IsReadOnly="True"></TextBox>
+            </Grid>
         </Grid>
-        <Grid Name="buttonsBlockGrid" Grid.Row="1" ButtonBase.Click="ButtonClick">
+        <Grid Name="buttonsBlockGrid" Grid.Row="1" ButtonBase.Click="CalculatorButtonClick">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Calculator
 {
@@ -13,15 +14,36 @@ namespace Calculator
         private int _varTwo = 0;
         private string _operation = "*";
         private bool _isVarOneEntered = false;
+        private bool _isGreyLast = false;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void ShowHistory(object sender, RoutedEventArgs e)
+        {
+            storyBlockGrid.Visibility = Visibility.Visible;
+        }
 
+        private void DontShowHistory(object sender, RoutedEventArgs e)
+        {
+            storyBlockGrid.Visibility = Visibility.Collapsed;
+        }
 
-        private void ButtonClick(object sender, RoutedEventArgs e)
+        private void ClearButtonClick(object sender, RoutedEventArgs e)
+        {
+            storyList.Items.Clear();
+            _isGreyLast = false;
+        }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            storyList.Items.RemoveAt(storyList.Items.Count - 1);
+            _isGreyLast = !_isGreyLast;
+        }
+
+        private void CalculatorButtonClick(object sender, RoutedEventArgs e)
         {
             string operationsTypes = "+-X/";
 
@@ -55,10 +77,12 @@ namespace Calculator
                             _varOne = 0;
                             _varTwo = 0;
                             _isVarOneEntered = false;
+                            SaveOperation("Error. Zero Deviding");
                             return;
                         }
                         break;
                 }
+                SaveOperation($"{_varOne} {_operation} {_varTwo} = {result}");
                 _varOne = result;
                 _varTwo = 0;
                 _isVarOneEntered = false;
@@ -107,6 +131,18 @@ namespace Calculator
                         textBox.Text = Convert.ToString(_varTwo);
                     }
                 }
+            }
+        }
+
+        private void SaveOperation(string operation)
+        {
+            if(save.IsChecked == true)
+            {
+                ListBoxItem newItem = new ListBoxItem();
+                newItem.Background = _isGreyLast ? new SolidColorBrush(Color.FromRgb(255, 255, 255)) : new SolidColorBrush(Color.FromRgb(128, 128, 128));
+                _isGreyLast = !_isGreyLast;
+                newItem.Content = operation;
+                storyList.Items.Add(newItem);
             }
         }
 
